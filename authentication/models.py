@@ -23,9 +23,9 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser):
     public_key = models.UUIDField(
         default=uuid.uuid4, editable=False, null=False, unique=True)
-    username = models.CharField(max_length=150)
-    fisrtname = models.CharField(max_length=150, null=False)
-    lastname = models.CharField(max_length=150, null=False)
+    username = models.CharField(max_length=50, null=False, unique=True)
+    fisrtname = models.CharField(max_length=150, null=False, unique=False)
+    lastname = models.CharField(max_length=150, null=False, unique=False)
     email = models.EmailField(max_length=10, null=False, unique=True)
     is_active = models.BooleanField(default=True)
     is_verified = models.BooleanField(default=False)
